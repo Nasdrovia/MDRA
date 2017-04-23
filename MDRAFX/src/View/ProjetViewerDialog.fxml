@@ -40,7 +40,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="310.0" prefWidth="539.0" style="-fx-background-color: white;">
                      <children>
-                        <ListView fx:id="listViewPlans" layoutX="386.0" layoutY="42.0" prefHeight="169.0" prefWidth="127.0" />
+                        <ListView fx:id="listViewPlans" layoutX="371.0" layoutY="42.0" prefHeight="169.0" prefWidth="142.0" />
                         <Label layoutX="386.0" layoutY="14.0" prefHeight="17.0" prefWidth="36.0" text="Plans">
                            <font>
                               <Font name="System Bold" size="12.0" />
@@ -60,7 +60,8 @@
                         <ComboBox fx:id="comboBox" layoutX="133.0" layoutY="84.0" prefWidth="150.0" />
                         <Button fx:id="buttonSauvegarder" layoutX="125.0" layoutY="266.0" mnemonicParsing="false" text="Sauvegarder" />
                         <Button fx:id="buttonSupprimer" layoutX="217.0" layoutY="266.0" mnemonicParsing="false" text="Supprimer" />
-                        <Button fx:id="buttonNouveauPlan" layoutX="386.0" layoutY="218.0" mnemonicParsing="false" text="Nouveau" />
+                        <Button fx:id="buttonNouveauPlan" layoutX="372.0" layoutY="218.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Nouveau" />
+                        <Button layoutX="442.0" layoutY="218.0" mnemonicParsing="false" text="Supprimer" />
                      </children>
                   </AnchorPane>
             </content>
@@ -73,19 +74,35 @@
                         <Label layoutX="149.0" layoutY="14.0" text="Projet" />
                         <Label layoutX="151.0" layoutY="53.0" text="Commercial" />
                         <Label layoutX="151.0" layoutY="95.0" text="Client" />
-                        <TableView layoutX="20.0" layoutY="155.0" prefHeight="152.0" prefWidth="494.0">
+                        <TableView fx:id="tableDevis" layoutX="16.0" layoutY="155.0" prefHeight="152.0" prefWidth="498.0">
                           <columns>
                             <TableColumn prefWidth="123.0" text="MODULE" />
-                            <TableColumn prefWidth="52.0" text="UNITE" />
-                              <TableColumn prefWidth="66.0" text="QUANTITE" />
-                              <TableColumn prefWidth="59.0" text="P.U HT" />
-                              <TableColumn prefWidth="184.0" text="Montant TTC" />
+                            <TableColumn  prefWidth="52.0" text="UNITE" />
+                              <TableColumn  prefWidth="66.0" text="QUANTITE" />
+                              <TableColumn  prefWidth="59.0" text="P.U HT" />
+                              <TableColumn  prefWidth="184.0" text="Montant TTC" />
                           </columns>
                         </TableView>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
+            <Tab text="Modalités de paiement">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
+                     <children>
+                        <ListView layoutX="14.0" layoutY="14.0" prefHeight="129.0" prefWidth="106.0" />
+                        <TableView fx:id="tableModalites" layoutX="20.0" layoutY="155.0" prefHeight="152.0" prefWidth="494.0">
+                           <columns>
+                              <TableColumn prefWidth="290.0" text="Palier" />
+                              <TableColumn  minWidth="0.0" prefWidth="83.0" text="TAUX" />
+                              <TableColumn  prefWidth="114.0" text="COUT" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>
