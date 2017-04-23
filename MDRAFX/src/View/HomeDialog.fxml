@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import org.controlsfx.glyphfont.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewController.HomeDialogController">
+   <children>
+      <VBox layoutX="14.0" layoutY="81.0" prefHeight="257.0" prefWidth="144.0" spacing="2.0" style="-fx-background-color: grey; -fx-border-color: white;">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleAccueilAction" prefHeight="25.0" style="-fx-background-color: cyan;" prefWidth="142.0" text="Accueil" />
+            <Button mnemonicParsing="false" onAction="#handleClientAction" prefHeight="25.0" prefWidth="145.0" text="Gérer les clients" />
+            <Button mnemonicParsing="false" onAction="#handleProjetAction" prefHeight="25.0" prefWidth="144.0" text="Gérer les projets" />
+            <Button mnemonicParsing="false" onAction="#handleConceptionAction" prefHeight="25.0" prefWidth="143.0" text="Conception de Devis" />
+         </children>
+      </VBox>
+      <Pane layoutX="158.0" layoutY="36.0" prefHeight="354.0" prefWidth="431.0" style="-fx-background-color: grey;" />
+      <ImageView fx:id="imageLogo" fitHeight="79.0" fitWidth="89.0" layoutX="47.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="labelCurrentUser" layoutX="409.0" layoutY="14.0" text="InitLabel" />
+      <Button fx:id="buttonDeco" layoutX="23.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="127.0" text="Se déconnecter">
+        <graphic>
+        	<Glyph fontFamily="FontAwesome" icon="TIMES" />
+    	</graphic>
+      </Button>
+   </children>
+</Pane>
