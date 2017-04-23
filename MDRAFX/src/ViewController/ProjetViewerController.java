@@ -1,10 +1,13 @@
 package ViewController;
 
 import DAO.MDRAConnection;
+import DAO.PlanDAO;
+import Model.Plan;
 import Model.Projet;
 import Model.User;
 import Utils.JavaFXUtils;
 import application.Session;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -31,6 +34,9 @@ public class ProjetViewerController {
 
 	@FXML
 	private DatePicker datePicker;
+
+	@FXML
+	private ListView<Plan> listViewPlans;
 
 	@FXML
 	private ComboBox<User> comboBox;
@@ -116,6 +122,31 @@ public class ProjetViewerController {
 				JavaFXUtils.switchScene(stage, loader);
 			}
 		});
+
+		PlanDAO planDAO = new PlanDAO(MDRAConnection.getInstance());
+		listViewPlans.setCellFactory(new Callback<ListView<Plan>, ListCell<Plan>>() {
+
+			@Override
+			public ListCell<Plan> call(ListView<Plan> p) {
+
+				ListCell<Plan> cell = new ListCell<Plan>() {
+
+					@Override
+					protected void updateItem(Plan t, boolean bln) {
+						super.updateItem(t, bln);
+						if (t != null) {
+							setText(t.getName());
+						} else {
+							setText("");
+						}
+					}
+
+				};
+
+				return cell;
+			}
+		});
+		listViewPlans.setItems(FXCollections.observableArrayList(planDAO.findProjetPlans(projet)));
 	}
 
 	@FXML

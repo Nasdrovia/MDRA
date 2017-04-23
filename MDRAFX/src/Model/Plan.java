@@ -20,6 +20,14 @@ public class Plan {
 		this.gamme = gamme;
 	}
 
+	public Plan(String name, Date dateCreation, Date dateModification, Projet projet, Gamme gamme) {
+		this.name = name;
+		this.dateCreation = dateCreation;
+		this.dateModification = dateModification;
+		this.projet = projet;
+		this.gamme = gamme;
+	}
+
 	public int getId() {
 		return id;
 	}

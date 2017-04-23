@@ -26,6 +26,7 @@
             <Label layoutX="6.0" layoutY="132.0" text="Coupe de principe" />
             <Button fx:id="buttonCoupePrincipe" layoutX="114.0" layoutY="128.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="127.0" text="Choisir une coupe" />
             <VBox fx:id="vBox" layoutX="249.0" layoutY="6.0" prefHeight="341.0" prefWidth="291.0" style="-fx-background-color: white;" />
+            <Button fx:id="buttonCreer" layoutX="88.0" layoutY="315.0" mnemonicParsing="false" text="Créer" />
          </children></Pane>
       <ImageView fx:id="imageLogo" fitHeight="79.0" fitWidth="89.0" layoutX="47.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="labelCurrentUser" layoutX="409.0" layoutY="14.0" text="InitLabel" />

@@ -6,10 +6,12 @@ import java.util.List;
 import DAO.CoupeDAO;
 import DAO.GammeDAO;
 import DAO.MDRAConnection;
+import DAO.PlanDAO;
 import Model.CoupePrincipe;
 import Model.Gamme;
 import Model.Plan;
 import Model.Projet;
+import Utils.GlobalUtils;
 import Utils.JavaFXUtils;
 import application.Session;
 import javafx.event.ActionEvent;
@@ -44,10 +46,15 @@ public class PlanCreatorController {
 	private Button buttonLogOut;
 
 	@FXML
+	private Button buttonCreer;
+
+	@FXML
 	private VBox vBox;
 	private Plan plan;
 
 	private Projet projet;
+
+	private Gamme gamme;
 
 	public PlanCreatorController(Projet projet) {
 		this.projet = projet;
@@ -78,6 +85,16 @@ public class PlanCreatorController {
 			}
 		});
 
+		buttonCreer.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				Plan plan = new Plan(textName.getText(), GlobalUtils.getCurrentDate(), GlobalUtils.getCurrentDate(),
+						projet, gamme);
+				PlanDAO planDAO = new PlanDAO(MDRAConnection.getInstance());
+				planDAO.create(plan);
+			}
+		});
 	}
 
 	private void createGammeElements() {
@@ -91,15 +108,16 @@ public class PlanCreatorController {
 		}
 	}
 
-	private Button createGammeElement(Gamme gamme) {
-		ImageView imageView = new ImageView(gamme.getImage());
-		Button button = new Button(gamme.getName(), imageView);
+	private Button createGammeElement(Gamme gammeLocal) {
+		ImageView imageView = new ImageView(gammeLocal.getImage());
+		Button button = new Button(gammeLocal.getName(), imageView);
 		button.setPrefSize(200, 70);
 		button.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
-				buttonGamme.setText("Gamme " + gamme.getName());
+				buttonGamme.setText("Gamme " + gammeLocal.getName());
+				gamme = gammeLocal;
 			}
 		});
 		return button;

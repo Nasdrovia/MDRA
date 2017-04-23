@@ -40,7 +40,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="310.0" prefWidth="539.0" style="-fx-background-color: white;">
                      <children>
-                        <ListView layoutX="386.0" layoutY="42.0" prefHeight="169.0" prefWidth="127.0" />
+                        <ListView fx:id="listViewPlans" layoutX="386.0" layoutY="42.0" prefHeight="169.0" prefWidth="127.0" />
                         <Label layoutX="386.0" layoutY="14.0" prefHeight="17.0" prefWidth="36.0" text="Plans">
                            <font>
                               <Font name="System Bold" size="12.0" />

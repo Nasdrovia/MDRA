@@ -1,6 +1,7 @@
 package DAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,7 +20,21 @@ public class PlanDAO extends DAO<Plan> {
 
 	@Override
 	public boolean create(Plan obj) {
-		// TODO Auto-generated method stub
+		try {
+			PreparedStatement ps = this.connect.prepareStatement(
+					"INSERT INTO plan (name, dateCreation, dateModification, id_projet, id_gamme) VALUES (?,?,?,?,?)");
+
+			ps.setString(1, obj.getName());
+			ps.setDate(2, obj.getDateCreation());
+			ps.setDate(3, obj.getDateModification());
+			ps.setInt(4, obj.getProjet().getId());
+			ps.setInt(5, obj.getGamme().getId());
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return false;
 	}
 
