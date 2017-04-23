@@ -8,14 +8,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import org.controlsfx.glyphfont.Glyph?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewController.PlanCreatorController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox layoutX="14.0" layoutY="81.0" prefHeight="257.0" prefWidth="144.0" spacing="2.0" style="-fx-background-color: grey; -fx-border-color: white;">
          <children>
             <Button mnemonicParsing="false" onAction="#handleAccueilAction" prefHeight="25.0" prefWidth="142.0" text="Accueil" />
             <Button mnemonicParsing="false" onAction="#handleClientAction" prefHeight="25.0" prefWidth="145.0" text="Gérer les clients" />
             <Button mnemonicParsing="false" onAction="#handleProjetAction" prefHeight="25.0" prefWidth="144.0" style="-fx-background-color: cyan;" text="Gérer les projets" />
-            <Button mnemonicParsing="false" onAction="#handleConceptionAction" prefHeight="25.0" prefWidth="143.0" text="Conception de Devis" />
          </children>
       </VBox>
       <Pane layoutX="158.0" layoutY="36.0" prefHeight="354.0" prefWidth="548.0" style="-fx-background-color: grey;">

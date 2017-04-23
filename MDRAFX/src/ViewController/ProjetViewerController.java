@@ -45,9 +45,6 @@ public class ProjetViewerController {
 	private Button buttonSupprimer;
 
 	@FXML
-	private Button buttonOuvrir;
-
-	@FXML
 	private Button buttonNouveauPlan;
 
 	private final Projet projet;
@@ -109,17 +106,6 @@ public class ProjetViewerController {
 			}
 		});
 
-		buttonOuvrir.setOnAction(new EventHandler<ActionEvent>() {
-
-			@Override
-			public void handle(ActionEvent event) {
-				Stage stage = (Stage) labelCurrentUser.getScene().getWindow();
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/ConceptionDialog.fxml"));
-				loader.setController(new ConceptionController(projet));
-				JavaFXUtils.switchScene(stage, loader);
-			}
-		});
-
 		buttonNouveauPlan.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -136,14 +122,6 @@ public class ProjetViewerController {
 	protected void handleAccueilAction(ActionEvent event) {
 		Stage stage = (Stage) labelCurrentUser.getScene().getWindow();
 		JavaFXUtils.switchScene(stage, new FXMLLoader(getClass().getResource("/View/HomeDialog.fxml")));
-	}
-
-	@FXML
-	protected void handleConceptionAction(ActionEvent event) {
-		Stage stage = (Stage) labelCurrentUser.getScene().getWindow();
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/ConceptionDialog.fxml"));
-		loader.setController(new ConceptionController());
-		JavaFXUtils.switchScene(stage, loader);
 	}
 
 	@FXML

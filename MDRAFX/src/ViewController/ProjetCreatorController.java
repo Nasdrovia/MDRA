@@ -106,14 +106,6 @@ public class ProjetCreatorController {
 	}
 
 	@FXML
-	protected void handleConceptionAction(ActionEvent event) {
-		Stage stage = (Stage) labelCurrentUser.getScene().getWindow();
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/ConceptionDialog.fxml"));
-		loader.setController(new ConceptionController());
-		JavaFXUtils.switchScene(stage, loader);
-	}
-
-	@FXML
 	protected void handleProjetAction(ActionEvent event) {
 		Stage stage = (Stage) labelCurrentUser.getScene().getWindow();
 		JavaFXUtils.switchScene(stage, new FXMLLoader(getClass().getResource("/View/ProjetsManagerDialog.fxml")));

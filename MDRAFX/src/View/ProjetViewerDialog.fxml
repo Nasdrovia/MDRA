@@ -24,7 +24,6 @@
             <Button mnemonicParsing="false" onAction="#handleAccueilAction" prefHeight="25.0" prefWidth="142.0" text="Accueil" />
             <Button mnemonicParsing="false" onAction="#handleClientAction" prefHeight="25.0" prefWidth="145.0" text="Gérer les clients" />
             <Button mnemonicParsing="false" onAction="#handleProjetAction" prefHeight="25.0" prefWidth="144.0" style="-fx-background-color: cyan;" text="Gérer les projets" />
-            <Button mnemonicParsing="false" onAction="#handleConceptionAction" prefHeight="25.0" prefWidth="143.0" text="Conception de Devis" />
          </children>
       </VBox>
       <Pane layoutX="158.0" layoutY="36.0" prefHeight="354.0" prefWidth="548.0" style="-fx-background-color: grey;" />
@@ -61,7 +60,6 @@
                         <ComboBox fx:id="comboBox" layoutX="133.0" layoutY="84.0" prefWidth="150.0" />
                         <Button fx:id="buttonSauvegarder" layoutX="125.0" layoutY="266.0" mnemonicParsing="false" text="Sauvegarder" />
                         <Button fx:id="buttonSupprimer" layoutX="217.0" layoutY="266.0" mnemonicParsing="false" text="Supprimer" />
-                        <Button fx:id="buttonOuvrir" layoutX="464.0" layoutY="218.0" mnemonicParsing="false" text="Ouvrir" />
                         <Button fx:id="buttonNouveauPlan" layoutX="386.0" layoutY="218.0" mnemonicParsing="false" text="Nouveau" />
                      </children>
                   </AnchorPane>
