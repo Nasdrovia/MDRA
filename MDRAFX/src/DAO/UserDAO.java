@@ -47,6 +47,10 @@ public class UserDAO extends DAO<User> {
 
 	public User findByEmail(String email) {
 		User user = null;
+		if(this.connect == null)
+			
+			return null;
+		
 		try {
 			ResultSet result = this.connect
 					.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)

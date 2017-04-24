@@ -23,7 +23,7 @@ public class Main extends Application {
 			Pane root = (Pane) loader.load();
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("A FXML Example which includes FXML Files");
+			primaryStage.setTitle("Madera");
 			primaryStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
