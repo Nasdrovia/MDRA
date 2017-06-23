@@ -15,6 +15,12 @@ import javafx.scene.image.WritableImage;
 import javafx.stage.Stage;
 
 public class JavaFXUtils {
+	
+	/**
+	 * Method used to switch between JavaFX scenes more easily, and cleaner within the code.
+	 * @param stage
+	 * @param loader
+	 */
 
 	public static void switchScene(Stage stage, FXMLLoader loader) {
 		Parent root = null;
@@ -30,6 +36,13 @@ public class JavaFXUtils {
 		}
 	}
 
+	/**
+	 * Will convert an array of byte into an JavaFX image of specified width and height
+	 * @param raw
+	 * @param width
+	 * @param height
+	 * @return the JavaFX image
+	 */
 	public static Image convertToJavaFXImage(byte[] raw, final int width, final int height) {
 		WritableImage image = new WritableImage(width, height);
 		try {

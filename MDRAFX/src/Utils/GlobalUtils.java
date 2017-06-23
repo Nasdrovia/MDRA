@@ -21,9 +21,9 @@ public class GlobalUtils {
 	}
 
 	/**
-	 * 
-	 * @param is
-	 * @return
+	 * Used to convert an InputStream to an array of bytes (used in our case to recover image from SQL Blob)
+	 * @param The inputstream to be converted
+	 * @return the bytearray, after conversion
 	 * @throws IOException
 	 */
 	public static byte[] toByteArray(InputStream is) throws IOException {
