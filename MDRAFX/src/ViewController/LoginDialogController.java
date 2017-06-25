@@ -40,9 +40,13 @@ public class LoginDialogController {
 		UserDAO userDAO = new UserDAO(MDRAConnection.getInstance());
 		User user = userDAO.findByEmail(userName.getText());
 		Stage stage = (Stage) loginButton.getScene().getWindow();
-		JavaFXUtils.switchScene(stage, new FXMLLoader(getClass().getResource("/View/HomeDialog.fxml")));
+
 		if (user != null) {
+			if (!user.getPassword().equals(userPass.getText()))
+				return;
+
 			Session.user = user;
+			JavaFXUtils.switchScene(stage, new FXMLLoader(getClass().getResource("/View/HomeDialog.fxml")));
 
 		} else {
 			// TODO PRINT ERROR LOGGIN FAILED

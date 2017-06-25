@@ -9,6 +9,8 @@ import Utils.GlobalUtils;
 import Utils.JavaFXUtils;
 import application.Session;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -45,6 +47,12 @@ public class ProjetCreatorController {
 	private ListView<Client> listView;
 
 	@FXML
+	private TextField textSearch;
+
+	private ObservableList<Client> observableClientList = FXCollections.observableArrayList();
+	private FilteredList<Client> filteredItems = new FilteredList<>(observableClientList);
+
+	@FXML
 	public void initialize() {
 		if (labelCurrentUser != null)
 			labelCurrentUser.setText(Session.getCurrentUserLabel());
@@ -78,7 +86,20 @@ public class ProjetCreatorController {
 				return cell;
 			}
 		});
-		listView.setItems(FXCollections.observableArrayList(clientDAO.findAllClients()));
+		observableClientList = FXCollections.observableArrayList(clientDAO.findAllClients());
+		listView.setItems(observableClientList);
+
+		// filteredItems.predicateProperty()
+		// .bind((ObservableValue<? extends Predicate<? super Client>>)
+		// Bindings.createObjectBinding(() -> {
+		// String text = textSearch.getText();
+		// if (text == null || text.isEmpty())
+		// return null;
+		// else {
+		// final String uppercase = text.toUpperCase();
+		// return (plant) -> plant.getName().toUpperCase().contains(uppercase);
+		// }
+		// }, textSearch.textProperty()));
 
 		buttonCreer.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -97,6 +118,7 @@ public class ProjetCreatorController {
 				}
 			}
 		});
+
 	}
 
 	@FXML

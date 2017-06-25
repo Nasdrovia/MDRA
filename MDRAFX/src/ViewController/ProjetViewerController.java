@@ -4,7 +4,6 @@ import DAO.MDRAConnection;
 import DAO.PlanDAO;
 import Model.Plan;
 import Model.Projet;
-import Model.User;
 import Utils.JavaFXUtils;
 import application.Session;
 import javafx.beans.property.SimpleFloatProperty;
@@ -15,7 +14,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
@@ -23,6 +21,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -44,13 +43,19 @@ public class ProjetViewerController {
 	private ListView<Plan> listViewPlans;
 
 	@FXML
-	private ComboBox<User> comboBox;
+	private TextField text_Commercial;
 
 	@FXML
 	private TableView tableDevis;
 
 	@FXML
 	private TableView tableModalites;
+
+	@FXML
+	private ListView<Plan> list_DevisPlans;
+
+	@FXML
+	private ListView<Plan> list_ModalitePlans;
 
 	@FXML
 	private TextArea textDescription;
@@ -83,28 +88,8 @@ public class ProjetViewerController {
 		datePicker.setDisable(true);
 		datePicker.setValue(projet.getDateCreation().toLocalDate());
 
-		comboBox.setCellFactory(new Callback<ListView<User>, ListCell<User>>() {
-			@Override
-			public ListCell<User> call(ListView<User> p) {
+		text_Commercial.setText(projet.getUser().getDisplayName());
 
-				ListCell<User> cell = new ListCell<User>() {
-
-					@Override
-					protected void updateItem(User t, boolean bln) {
-						super.updateItem(t, bln);
-						if (t != null) {
-							setText(t.getDisplayName());
-						} else {
-							setText("");
-						}
-					}
-
-				};
-				return cell;
-			}
-		});
-
-		comboBox.setValue(projet.getUser());
 		textDescription.setText(projet.getDescription());
 
 		buttonSauvegarder.setOnAction(new EventHandler<ActionEvent>() {
@@ -158,6 +143,8 @@ public class ProjetViewerController {
 			}
 		});
 		listViewPlans.setItems(FXCollections.observableArrayList(planDAO.findProjetPlans(projet)));
+		list_DevisPlans.setItems(FXCollections.observableArrayList(planDAO.findProjetPlans(projet)));
+		list_ModalitePlans.setItems(FXCollections.observableArrayList(planDAO.findProjetPlans(projet)));
 		fillModalitesPaiement();
 	}
 
